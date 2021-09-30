@@ -1,0 +1,22 @@
+{
+    "name": "dolphin/module-techfeatures",
+    "description": "TechFeatures",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Dolphin",
+            "email": "info@dolphinwebsolution.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Dolphin\\TechFeatures\\": ""
+        }
+    }
+}

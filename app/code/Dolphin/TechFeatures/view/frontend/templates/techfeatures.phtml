@@ -1,0 +1,127 @@
+<?php
+    $_product = $block->getProduct();
+    $techfeatures = $_product->getTechFeatures();
+    $data = explode(',', $techfeatures);
+if ($data) {
+    
+    $helper = $this->helper("Dolphin\TechFeatures\Helper\Data");
+    $techFeaturesCollection = $helper->techFeaturesCollection($data);
+    $imageurl = $helper->imageUrl();
+    
+    if($techfeatures){
+?>
+        <div class="ept-tech-block technology">
+            <div class="container">
+                <div class="col-sm-12 one-product">        
+                    <div class="filterproducts-tab" style="margin-top: 40px;margin-bottom: 30px;">
+                        <div class="data items">
+                            <a class="data switch item title " style="color: #313131;padding-left: 0px !important;font-size: 14px;line-height: 20px;font-weight: 700;text-transform: uppercase;padding: 0 15px;">TECHNOLOGY IN THIS PRODUCT</a>
+                        </div>
+                    </div>        
+                    <div id="ept-tech-product" class="owl-top-narrow">
+                        <div class="owl-carousel owl-theme ">
+                            <?php foreach ($techFeaturesCollection as $techFeature) { ?>
+                                <div class="owl-item">
+                                    <div class="item product product-item thumbnail">
+                                        <div class="product-item-info" data-container="product-grid">
+                                            <div class="product photo product-item-photo">
+                                                    <img class="product-image-photo default_image " src="<?php echo $imageurl.$techFeature->getImage(); ?>" alt="<?php echo $techFeature->getTitle(); ?>">
+                                                    <img class="product-image-photo hover_image" src="<?php echo $imageurl.$techFeature->getImage(); ?>" alt="<?php echo $techFeature->getTitle(); ?>">
+                                            </div>
+                                            <div class="product details product-item-details">
+                                                <div class="product-reviews-summary short">
+                                                    <div class="rating-summary">
+                                                        <div class="ept-tech-product-title">
+                                                            <h4><?php echo $techFeature->getTitle(); ?></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <strong class="product name product-item-name">
+                                                    <p><?php echo $techFeature->getDescription(); ?></p>
+                                                </strong>                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<?php } ?>
+
+<script type="text/javascript">
+  require([
+    'jquery',
+    'owl.carousel/owl.carousel.min'
+    ], function ($) {
+            $("#ept-tech-product .owl-carousel").owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            nav: true,
+            navText: ["<em class='porto-icon-left-open-huge'></em>","<em class='porto-icon-right-open-huge'></em>"],
+            dots: false,
+            margin:5,
+            
+            responsive: {
+                0: {
+                    items:1
+                },
+                768: {
+                    items:2
+                },
+                992: {
+                    items:4
+                },
+                1200: {
+                    items:4
+                }
+            },
+            navRewind: true,
+            animateIn: 'fadeIn',
+            animateOut: 'fadeOut',
+            loop: true,
+            items: 10
+        });
+    });
+</script>
+
+<?php } ?>
+
+
+<style>
+
+.owl-theme .owl-controls {
+    position: absolute;
+    right: 0;
+    top: -52px !important;
+    margin: 0;
+}
+
+.filterproducts-tab .data.items>.item.title{
+	float:none !important;
+}
+
+.page-bottom {
+    background: ;
+    background: #fff;
+    margin-left: 60px !important;
+    margin-right: 60px !important;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width:767px){
+	
+	.page-bottom {
+    margin-left: 0px !important;
+    margin-right: 0px !important; 
+   margin-bottom:60px !important;
+}
+
+
+}
+
+
+</style>

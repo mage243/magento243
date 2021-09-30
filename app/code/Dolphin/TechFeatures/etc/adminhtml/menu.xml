@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<!-- <add id="Dolphin::top_level" title="Dolphin" module="Dolphin_TechFeatures" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Dolphin_TechFeatures::catalog_product_techfeatures" title="Technology Features" module="Dolphin_TechFeatures" sortOrder="9999" resource="Magento_Backend::content" parent="Dolphin::top_level" action="techfeatures/catalogproducttechfeatures/index"/> -->
+
+		<add id="Techfeatures" title="Dolphin - Tech. Features" translate="title" module="Dolphin_TechFeatures" parent="Magento_Catalog::catalog" sortOrder="100" resource="Dolphin_TechFeatures::view"/>
+        <add id="Dolphin_TechFeatures_Grid" title="Manage Technology Features" module="Dolphin_TechFeatures" sortOrder="20" parent="Techfeatures" action="techfeatures/catalogproducttechfeatures/index" resource="Dolphin_TechFeatures::view"/>
+	</menu>
+</config>
